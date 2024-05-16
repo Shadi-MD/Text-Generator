@@ -21,12 +21,16 @@ function generateText(event) {
   resultElem.innerHTML = "";
   let userNumber = inputElem.value;
 
-  for (var i = 0; i < userNumber; i++) {
-    let indexNumber = Math.floor(Math.random() * (dummyText.length - 1));
-    resultElem.innerHTML += dummyText[indexNumber] + "<br><br>";
+  if (userNumber < 1 || userNumber === "") {
+    alert("invalid input");
+  } else {
+    for (var i = 0; i < userNumber; i++) {
+      let indexNumber = Math.floor(Math.random() * (dummyText.length - 1));
+      resultElem.innerHTML += dummyText[indexNumber] + "<br><br>";
+    }
   }
+
   inputElem.value = "";
 }
 
 btnElem.addEventListener("click", generateText);
-
